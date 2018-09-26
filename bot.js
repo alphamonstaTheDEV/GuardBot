@@ -12,7 +12,7 @@ const config = require("./config.json");
 const talkedRecently = new Set();
 const client = new Discord.Client({ disableEveryone: true });
 client.commands = new Discord.Collection();
-const pref = config.prefix
+const pref = process.env.prefix;
 fs.readdir("./cmds/", (err, files) => {
     if (err) console.error(err);
     let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -64,4 +64,4 @@ client.on("message", async message => {
 
 });
 
-client.login(config.TOKEN);
+client.login(process.env.TOKEN);
