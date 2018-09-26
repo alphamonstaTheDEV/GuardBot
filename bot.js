@@ -1,14 +1,5 @@
 const fs = require(`fs`);
 const Discord = require("discord.js");
-/*const userdata = require("./database/userdata/userdata.json");
-const inv = require("./database/userdata/userinv.json");
-const map = require("./database/locationdata/map.json");
-const items = require("./database/itemdata/itemlist.json");
-const recipe = require("./database/itemdata/recipe.json");
-const serverdata = require("./database/serverdata/serverdata.json");
-const errors = require("./utils/errors.js");
-const auto = require("./utils/auto.js");*/
-const config = require("./config.json");
 const talkedRecently = new Set();
 const client = new Discord.Client({ disableEveryone: true });
 client.commands = new Discord.Collection();
