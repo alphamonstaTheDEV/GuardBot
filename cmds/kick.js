@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
         user = message.guild.members.get(args[0]);
     }
     if (user == message.member) return;
-    if (!user.kickable()) return message.channel.send(`${user.user.tag} can't be banned. \`kickable == False\``)
+    if (!user.kickable) return message.channel.send(`${user.user.tag} can't be banned. \`kickable == False\``)
     if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send(`${user.user.tag} has a higher role than you.`)
     user.kick(reason);
     auto.log(message, "kicked", user, reason);

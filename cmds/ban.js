@@ -10,11 +10,11 @@ module.exports.run = async (client, message, args) => {
     let reason = args.slice(1).join(" ");
     if (!user) {
         if (!parseInt(args[0])) return message.channel.send("**ERROR**: \`/ban **<user>** [reason]\`");
-        user = message.guild.members.get(args[0]);
+        user = message.guild.members.get(`${args[0]}`);
     }    
     if (user == message.member) return;
     console.log("goin great");
-    if (!user.bannable()) return message.channel.send(`${user.user.tag} can't be banned. \`bannable == False\``)
+    if (!user.bannable) return message.channel.send(`${user.user.tag} can't be banned. \`bannable == False\``)
     if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send(`${user.user.tag} has a higher role than you.`)
     
     user.ban(reason);
