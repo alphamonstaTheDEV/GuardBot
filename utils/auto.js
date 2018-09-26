@@ -7,7 +7,7 @@ const config = require("../config.json");
 module.exports.actionTaken = (message, action, member, reason) => {
 	if (!reason) return message.channel.send(`**${member.user.tag}\` (${member.user.id})\`** has been ${action} by **${message.author.tag}**`);
 	if (action === "force banned") {
-		return logChannel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
+		return message.channel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
 	} 
 	return message.channel.send(`**${member.user.tag}\` (${member.user.id})\`** has been ${action} by **${message.author.tag}** | Reason: \`${reason}\``);
 
