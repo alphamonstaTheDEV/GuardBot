@@ -14,9 +14,7 @@ module.exports.run = async (client, message, args) => {
             console.log(err)
         })
         auto.actionTaken(message, "force banned", user, reason);
-        return auto.log(message, "force banned", user, reason);
-    }).catch(() => {
-        return message.channel.send(`There's no user with the ID of ${user}, please try again. :face_palm:`)
+        auto.log(message, "force banned", user, reason);
     })
 
 }
