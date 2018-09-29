@@ -20,6 +20,26 @@ fs.readdir("./cmds/", (err, files) => {
     });
 });
 
+client.on("channelCreate", async channel => {
+    let logChannel = channel.guild.channels.find("name", "guardbot-log");
+    if (!logChannel) return;
+    logChannel.send(`:heavy_plus_sign:  A \`${channel.type}\`channel has been created. \`${channel.name} (${channel.id})\``);
+})
+
+client.on("channelDelete", async channel => {
+    let logChannel = channel.guild.channels.find("name", "guardbot-log");
+    if (!logChannel) return;
+    logChannel.send(`:heavy_plus_sign:  A \`${channel.type}\`channel has been deleted. \`${channel.name} (${channel.id})\``);
+})
+
+client.on("channelUpdate", (oldc, newc) => {
+    let logChannel = channel.guild.channels.find("name", "guardbot-log");
+    if (!logChannel) return;
+    logChannel.send(`:arrow_up: \`${oldc.id}\` has been updated. *Bot will give more information soon.*`)
+})
+
+
+
 client.on("ready", () => {
     console.log("I am ready to roll.")
     client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})

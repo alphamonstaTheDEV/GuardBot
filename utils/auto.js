@@ -30,3 +30,9 @@ module.exports.log = (message, action, member, reason) => {
 	}
 
 }
+
+
+//plans to add a perm level
+module.exports.permCheck = (message, permLevel) => {
+	
+}
