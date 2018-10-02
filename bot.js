@@ -32,11 +32,11 @@ client.on("channelDelete", async channel => {
     logChannel.send(`:heavy_minus_sign: A \`${channel.type}\` channel has been deleted. \`${channel.name} (${channel.id})\``);
 })
 
-client.on("channelUpdate", (oldc, newc) => {
+/*client.on("channelUpdate", (oldc, newc) => {
     let logChannel = channel.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
     logChannel.send(`:arrow_up: \`${oldc.id}\` has been updated. *Bot will give more information soon.*`)
-})
+})*/
 
 
 
