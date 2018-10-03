@@ -6,11 +6,11 @@ const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
-    if (!args[0] || !args[1] || !args[2]) return message.channel.send("**ERROR**: \`/channel <create/delete> <text/voice> <name>\`");
     let action = args[0];
     let type = args[1].toLowerCase();
     let name = args.slice(2).join(" ");
     if (action == "create") {
+        if (!args[0] || !args[1] || !args[2]) return message.channel.send("**ERROR**: \`/channel <create/delete> <text/voice> <name>\`");
         if (type == "voice") {
             message.guild.createChannel(name, type)
             message.channel.send(`:ok_hand: channel created! **Name:** \`${channelc.name}\` **Type:** \`${type}\``)
@@ -25,6 +25,7 @@ module.exports.run = async (client, message, args) => {
 
         }
     } else if (action == "delete") {
+        if (!args[0] || !args[1]) return message.channel.send("**ERROR**: \`/channel <create/delete> <name>\`");
         let channelD = message.guild.channels.get(args[1]) || message.guild.channels.find("name", args.slice(1).join(" ")) || args[1]
         channelD.delete()
         message.channel.send(`:ok_hand: channel deleted!`)
