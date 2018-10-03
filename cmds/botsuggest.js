@@ -17,5 +17,7 @@ module.exports.run = async (client, message, args) => {
 
     owner.send(suggestionEmbed);
     message.delete();
-    return message.channel.send("Thank you for your suggestion.")
+    return message.channel.send("Thank you for your suggestion.").then(msg => {
+        msg.delete(10000)
+    })
 }
