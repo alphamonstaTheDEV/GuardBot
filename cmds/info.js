@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
         .setColor(0xffff00)
         .setAuthor(client.user.username, client.user.avatarURL)
         .setTitle("Info")
-        .setDescription("Hi! I am a complete moderation bot made by C4Navar(316641074967871500). If you have any questions/feedbacks please visit my Discord Server: *Not available at the moment.*")
+        .setDescription("Hi! I am a complete moderation bot made by C4Navar(316641074967871500). If you have any questions/feedbacks please visit my Discord Server: *Not available at the moment.*\n **Future Plans:**\n *Database System soon:tm:\n*With database, more commands soon:tm:")
         .addField("Commands:", `\`${cmds.join(", ")}\``)
         .addField("You can also create a channel named `guardbot-log` for me to log actions!")
         .addField("Invite Link:", "[Click to Invite!](https://discordapp.com/api/oauth2/authorize?client_id=487984632265179178&permissions=8&scope=bot)")

@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
         if (!args[0] || !args[1]) return message.channel.send("**ERROR**: \`/channel <create/delete> <name>\`");
         let channelD = message.guild.channels.get(args[1]) || message.guild.channels.find("name", args.slice(1).join(" ")) || args[1]
         channelD.delete()
-        message.channel.send(`:ok_hand: channel deleted!`)
+        message.channel.send(`:ok_hand: \`${name}\` named channel deleted!`)
     }
     
 
