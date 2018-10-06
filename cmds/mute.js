@@ -5,8 +5,8 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    let mutedRole;
-    if (!message.guild.roles.find("name", "Muted")) {
+    let mutedRole = message.guild.roles.find("name", "Muted")
+    if (!mutedRole) {
         message.channel.send("Unable to find a `Muted` role. Creating...")
         message.guild.createRole({
             name: "Muted",
@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
             channel.overwritePermissions(mutedRole, { SEND_MESSAGES: false}, "Created Muted Role")
         });
     }
-    mutedRole = message.guild.roles.find("name", "Muted")
+    
     let user = message.mentions.members.first();
     let reason = args.slice(1).join(" ");
     if (!user) {
@@ -28,8 +28,9 @@ module.exports.run = async (client, message, args) => {
     if (user == message.member) return;
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return;
     if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send(`${user.user.tag} has a higher role than you.`);
-    user.addRole(mutedRole).then(err =>{
-        auto.log(message, "muted", user, reason);
-        auto.actionTaken(message, "muted", user, reason);
-    })
+    try {user.addRole(mutedRole)} catch (err) {
+        return message.channel.send("ERROR: `Muted` role is above my role.")
+    }
+    auto.log(message, "muted", user, reason);
+    auto.actionTaken(message, "muted", user, reason);
 }
