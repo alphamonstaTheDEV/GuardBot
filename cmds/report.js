@@ -5,7 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    let reportChannel = message.guild.channels.find("name", "mod-log") || message.guild.channels.find("name", "reports") || message.guild.channels.find("name", "log")
+    let reportChannel = message.guild.channels.find("name", "mod-log") || message.guild.channels.find("name", "reports") || message.guild.channels.find("name", "log") || message.guild.channels.find("name", "guardbot-log")
     if (!reportChannel) return message.channel.send("This server does not have a` #log` / `#mod-log` / `#reports` channel. Until the channel is opened, this command is unavailable. :lock:")
     let user = message.mentions.members.first();
     let reason = args.slice(1).join(" ");
