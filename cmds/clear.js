@@ -15,3 +15,9 @@ module.exports.run = async (client, message, args) => {
     message.channel.send("Deleted **" + messagecount + "** messages.").then(msg => {msg.delete(8000)})
     auto.log(message, "clear")
 }
+
+module.exports.help = {
+    "description": "Deletes given amount of messages.",
+    "usage": "/clear <messageAmount>",
+    "perms": "ADMINISTRATOR"
+}

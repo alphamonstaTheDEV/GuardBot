@@ -12,6 +12,12 @@ module.exports.run = async (client, message, args) => {
         user = message.guild.members.get(args[0]);
     }
     randomTxt1 = array[Math.floor(Math.random()* array.length)].replace("{user}", `<@${message.author.id}>`)
-    randomTxtFinal = array[Math.floor(Math.random() * array.length)].replace("{user2}", `<@${user.id}>`)
+    randomTxtFinal = randomTxt1.replace("{user2}", `<@${user.id}>`)
     message.channel.send(randomTxtFinal);
+}
+
+module.exports.help = {
+    "description": "Hugs the given user.",
+    "usage": "/hug **<user>**",
+    "perms": "MANAGE_MESSAGES"
 }

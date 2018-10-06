@@ -5,7 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    let owner = client.users.get("316641074967871500");
+    let suggestionChat = client.channels.get("498008858267222026");
     suggestion = args.join(" ");
     if (!args[0]) return message.channel.send("**ERROR**: \`/botsuggestion **<a suggestion for the bot>**\`")
     let suggestionEmbed = new Discord.RichEmbed()
@@ -15,9 +15,18 @@ module.exports.run = async (client, message, args) => {
     .setDescription(suggestion)
     .setTimestamp()
 
-    owner.send(suggestionEmbed);
+    suggestionChat.send(suggestionEmbed).then(msg => {
+        await msg.react("👍")
+        msg.react("👎")
+    })
     message.delete();
     return message.channel.send("Thank you for your suggestion.").then(msg => {
         msg.delete(10000)
     })
+}
+
+module.exports.help = {
+    "description": "Sends your suggestion for the GearBot to Developers.",
+    "usage": "/botsuggestion <a suggestion for the bot>",
+    "perms": "USER"
 }

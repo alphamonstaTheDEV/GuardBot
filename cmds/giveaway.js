@@ -49,3 +49,9 @@ const giveaway = (client, message, args) => {
         }, ms(duration));
     })
 }
+
+module.exports.help = {
+    "description": "COMMAND UNAVAILABLE",
+    "usage": "",
+    "perms": ""
+}

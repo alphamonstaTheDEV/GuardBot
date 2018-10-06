@@ -23,3 +23,9 @@ module.exports.run = async (client, message, args) => {
     auto.log(message, "banned", user, reason);
 
 }
+
+module.exports.help = {
+    "description": "Bans the given user.",
+    "usage": "/ban <user> [reason]",
+    "perms": "BAN_MEMBERS"
+}

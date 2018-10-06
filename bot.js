@@ -2,23 +2,7 @@ const fs = require(`fs`);
 const Discord = require("discord.js");
 const talkedRecently = new Set();
 const client = new Discord.Client({ disableEveryone: true });
-client.commands = new Discord.Collection();
 const pref = process.env.prefix;
-fs.readdir("./cmds/", (err, files) => {
-    if (err) console.error(err);
-    let jsfiles = files.filter(f => f.split(".").pop() === "js");
-    if (jsfiles.length <= 0) {
-        console.log("komut yok");
-        return;
-    }
-    console.log(`Loading ${jsfiles.length} commands!`);
-    jsfiles.forEach((f, i) => {
-        let props = require(`./cmds/${f}`);
-        console.log(`${i + 1}: ${f}`);
-        client.commands.set(f, props);
-
-    });
-});
 
 client.on("channelCreate", async channel => {
     let logChannel = channel.guild.channels.find("name", "guardbot-log");
@@ -38,7 +22,9 @@ client.on("channelDelete", async channel => {
     logChannel.send(`:arrow_up: \`${oldc.id}\` has been updated. *Bot will give more information soon.*`)
 })*/
 
-
+client.on("messageDelete", async message => {
+    logChannel.send(`❗ A message sent by ${message.author.tag} (\`${message.author.id}\`) has been deleted. **Message Channel:** \`${message.channel.name} (${message.channel.id})\` **Message Content:** \n \`${message.content}\``);
+})
 
 client.on("ready", () => {
     console.log("I am ready to roll.")
