@@ -53,5 +53,6 @@ const giveaway = (client, message, args) => {
 module.exports.help = {
     "description": "COMMAND UNAVAILABLE",
     "usage": "",
-    "perms": ""
+    "perms": "",
+    "state": "unavailable" 
 }

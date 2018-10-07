@@ -19,5 +19,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Deletes given amount of messages.",
     "usage": "/clear <messageAmount>",
-    "perms": "ADMINISTRATOR"
+    "perms": "ADMINISTRATOR",
+    "state": "functional"
 }

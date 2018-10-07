@@ -29,3 +29,10 @@ module.exports.run = async (client, message, args) => {
     return message.channel.send(`<#${message.channel.id}> has been locked by **${message.author.tag}** for ${duration} :lock:`);
 
 }
+
+module.exports.help = {
+    "description": "Locks the current channel.",
+    "usage": "/forceban <userID> [reason]",
+    "perms": "MANAGE_CHANNELS",
+    "state": "functional"
+}

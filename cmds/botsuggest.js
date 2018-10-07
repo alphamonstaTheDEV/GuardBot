@@ -16,8 +16,7 @@ module.exports.run = async (client, message, args) => {
     .setTimestamp()
 
     suggestionChat.send(suggestionEmbed).then(msg => {
-        await msg.react("👍")
-        msg.react("👎")
+        msg.react("👍").then(msg1 =>{msg1.react("👎")})
     })
     message.delete();
     return message.channel.send("Thank you for your suggestion.").then(msg => {
@@ -28,5 +27,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Sends your suggestion for the GearBot to Developers.",
     "usage": "/botsuggestion <a suggestion for the bot>",
-    "perms": "USER"
+    "perms": "USER",
+    "state": "functional"
 }

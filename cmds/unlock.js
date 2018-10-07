@@ -14,3 +14,10 @@ module.exports.run = async (client, message, args) => {
         auto.log(message, "unlock")
         return message.channel.send(`<#${message.channel.id}> has been unlocked by **${message.author.tag}** :unlock:`);
 }
+
+module.exports.help = {
+    "description": "Locks the current channel.",
+    "usage": "/forceban <userID> [reason]",
+    "perms": "MANAGE_CHANNELS",
+    "state": "functional"
+}

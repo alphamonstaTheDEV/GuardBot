@@ -22,5 +22,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Force bans the given user. Given user does not have to be in the guild.",
     "usage": "/forceban <userID> [reason]",
-    "perms": "ADMINISTRATOR"
+    "perms": "ADMINISTRATOR",
+    "state": "functional"
 }

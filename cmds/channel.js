@@ -37,5 +37,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Deletes given amount of messages.",
     "usage": "/channel <create> <text/voice> <ChannelName> \n /channel <delete> <ChannelName>",
-    "perms": "MANAGE_CHANNELS"
+    "perms": "MANAGE_CHANNELS",
+    "state": "functional"
 }

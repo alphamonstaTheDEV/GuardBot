@@ -20,3 +20,11 @@ module.exports.run = async (client, message, args) => {
     auto.log(message, "kicked", user, reason);
     return auto.actionTaken(message, "kicked", user, reason);
 }
+
+
+module.exports.help = {
+    "description": "Kicks the given user.",
+    "usage": "/kick <user> [reason]",
+    "perms": "KICK_MEMBERS",
+    "state": "functional"
+}

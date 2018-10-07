@@ -27,5 +27,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Bans the given user.",
     "usage": "/ban <user> [reason]",
-    "perms": "BAN_MEMBERS"
+    "perms": "BAN_MEMBERS",
+    "state": "functional"
 }
