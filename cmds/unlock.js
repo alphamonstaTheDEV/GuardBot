@@ -16,8 +16,8 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    "description": "Locks the current channel.",
-    "usage": "/forceban <userID> [reason]",
+    "description": "Unlocks the current channel.",
+    "usage": "/unlock [reason]",
     "perms": "MANAGE_CHANNELS",
     "state": "functional"
 }

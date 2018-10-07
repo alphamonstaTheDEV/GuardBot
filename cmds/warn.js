@@ -34,3 +34,10 @@ module.exports.run = async (client, message, args) => {
     auto.log(message, "warned", message.mentions.members.first(), reason)
     auto.actionTaken(message, "warned", message.mentions.members.first(), reason)
 }
+
+module.exports.help = {
+    "description": "Warns the given user.",
+    "usage": "/warns <user> [reason]",
+    "perms": "MANAGE_MESSAGES",
+    "state": "Fix Needed"
+}

@@ -28,3 +28,11 @@ module.exports.run = async (client, message, args) => {
     message.delete();
     message.channel.send("Your report has been sent.").then(msg => {msg.delete(8000)});
 }
+
+
+module.exports.help = {
+    "description": "Reports the given user with the reason.",
+    "usage": "/report <user> <reason>",
+    "perms": "USER",
+    "state": "functional"
+}

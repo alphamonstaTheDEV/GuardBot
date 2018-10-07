@@ -39,3 +39,10 @@ module.exports.run = async (client, message, args) => {
         user.removeRole(mutedRole);
     }, ms(duration));
 }
+
+module.exports.help = {
+    "description": "TemMutes the given user.",
+    "usage": "/tempmute <user> <duration> [reason]",
+    "perms": "MANAGE_MESSAGES",
+    "state": "functional"
+}

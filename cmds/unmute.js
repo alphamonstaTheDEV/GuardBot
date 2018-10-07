@@ -19,3 +19,10 @@ module.exports.run = async (client, message, args) => {
     auto.log(message, "unmuted", user, reason);
     auto.actionTaken(message, "unmuted", user, reason);
 }
+
+module.exports.help = {
+    "description": "Unmutes the given user.",
+    "usage": "/unmute <user> [reason]",
+    "perms": "MANAGE_MESSAGES",
+    "state": "functional"
+}

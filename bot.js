@@ -23,7 +23,7 @@ client.on("channelDelete", async channel => {
 })*/
 
 client.on("messageDelete", async message => {
-    let logChannel = channel.guild.channels.find("name", "guardbot-log");
+    let logChannel = message.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
     logChannel.send(`❗ A message sent by ${message.author.tag} (\`${message.author.id}\`) has been deleted. **Message Channel:** \`${message.channel.name} (${message.channel.id})\` **Message Content:** \n \`${message.content}\``);
 })
@@ -31,7 +31,7 @@ client.on("messageDelete", async message => {
 client.on("ready", () => {
     console.log("I am ready to roll.")
     client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
-    
+
 });
 client.on("guildCreate", guild => {
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);

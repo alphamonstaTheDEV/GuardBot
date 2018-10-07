@@ -34,3 +34,10 @@ module.exports.run = async (client, message, args) => {
     auto.log(message, "muted", user, reason);
     auto.actionTaken(message, "muted", user, reason);
 }
+
+module.exports.help = {
+    "description": "Mutes the given user.",
+    "usage": "/mute <user> [reason]",
+    "perms": "MANAGE_MESSAGES",
+    "state": "functional"
+}
