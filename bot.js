@@ -31,7 +31,7 @@ client.on("messageDelete", async message => {
 client.on("ready", () => {
     console.log("I am ready to roll.")
     client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
-
+    
 });
 client.on("guildCreate", guild => {
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
