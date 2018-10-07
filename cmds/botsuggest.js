@@ -16,7 +16,8 @@ module.exports.run = async (client, message, args) => {
     .setTimestamp()
 
     suggestionChat.send(suggestionEmbed).then(msg => {
-        msg.react("👍").then(msg1 =>{msg1.react("👎")})
+        msg.react("👍");
+        msg.react("👎")
     })
     message.delete();
     return message.channel.send("Thank you for your suggestion.").then(msg => {
