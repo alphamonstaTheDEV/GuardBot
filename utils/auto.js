@@ -28,7 +28,7 @@ module.exports.log = (message, action, member, reason) => {
 	}*/ else if (action === "force banned") {
 		return logChannel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
 	} else if (action === "clear") {
-		return logChannel.send(`🛡 **${message.author.tag}\` (${message.author.id})\`** has bulk deleted <#${message.channel.id}> (${message.channel.id})`);
+		return logChannel.send(`🛡 **${message.author.tag}\` (${message.author.id})\`** has bulk deleted \`${member}\` messages in <#${message.channel.id}> (${message.channel.id})`);
 	} else {
 		if (!reason) return logChannel.send(`🛡 **${member.user.tag}\` (${member.user.id})\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`**`);
 		return logChannel.send(`🛡 **${member.user.tag}\` (${member.user.id})\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
