@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     "description": "Sets a reminder.",
-    "usage": "/remind <duration(s/m/h/d)> <text>",
+    "usage": "/reminder <duration(s/m/h/d)> <text>",
     "perms": "USER",
     "state": "functional"
 }
