@@ -8,6 +8,7 @@ module.exports.run = async (client, message, args) => {
     if (!args[0] || !args[1]) return message.channel.send(help.usage);
     let duartion = args[0]
     let text = args.slice(1).join(" ")
+    message.channel.send("Ok, I'll remind you in `" + duration + "`")
     setTimeout(() => {
         message.reply(`Hey! You wanted me to remind you this: ${text}`);
     }, ms(duartion));
