@@ -52,7 +52,7 @@ const giveaway = (client, message, args) => {
 
 module.exports.help = {
     "description": "COMMAND UNAVAILABLE",
-    "usage": "",
-    "perms": "",
+    "usage": "/giveaway <duration> <WinnerAmount> <Title>",
+    "perms": "ADMINISTRATOR",
     "state": "unavailable" 
 }
