@@ -37,7 +37,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     "description": "Warns the given user.",
-    "usage": "/warns <user> [reason]",
+    "usage": "/warn <user> [reason]",
     "perms": "MANAGE_MESSAGES",
     "state": "Fix Needed"
 }

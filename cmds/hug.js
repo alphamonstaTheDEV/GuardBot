@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     "description": "Hugs the given user.",
-    "usage": "/hug **<user>**",
+    "usage": "/hug <user>",
     "perms": "MANAGE_MESSAGES",
     "state": "functional"
 }
