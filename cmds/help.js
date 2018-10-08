@@ -7,7 +7,7 @@ const config = require("../config.json");
 module.exports.run = async (client, message, args) => {
     if(!args[0]) return message.channel.send("/help <command>")
     const cmd = require(`./${args[0].toLowerCase()}.js`)
-    if(!cmd) return message.channel.send("Unknown command.");
+    if(!cmd.help) return message.channel.send("Unknown command.");
     let help = new Discord.RichEmbed()
     .setTitle(`${args[0]} command`)
     .setDescription(cmd.help.description)
