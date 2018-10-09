@@ -15,9 +15,11 @@ module.exports.run = async (client, message, args) => {
         });
     });
     if(!args[0]) return message.channel.send("/help <command>")
-    const cmd = require(`./${args[0].toLowerCase()}.js`).catch(err => {
-        return message.channel.send("Unknown command. Commands: `" + cmds.join(", ") + "`");
-    })
+    try {
+        const cmd = require(`./${args[0].toLowerCase()}.js`)
+    } catch (err) {
+            return message.channel.send("Unknown command. Commands: `" + cmds.join(", ") + "`");
+    }
     let help = new Discord.RichEmbed()
     .setTitle(`${args[0]} command`)
     .setDescription(cmd.help.description)
