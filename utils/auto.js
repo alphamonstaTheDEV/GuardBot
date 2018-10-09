@@ -8,7 +8,7 @@ module.exports.actionTaken = (message, action, member, reason) => {
 	if (!reason) return message.channel.send(`**${member.user.tag}\` (${member.user.id})\`** has been ${action} by **${message.author.tag}**`);
 	if (action === "force banned") {
 		return message.channel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
-	} else if (action === "unban") {
+	} else if (action === "unbanned") {
 		return message.channel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
 	}
 	return message.channel.send(`**${member.user.tag}\` (${member.user.id})\`** has been ${action} by **${message.author.tag}** | Reason: \`${reason}\``);
@@ -31,7 +31,7 @@ module.exports.log = (message, action, member, reason) => {
 		return logChannel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
 	} else if (action === "clear") {
 		return logChannel.send(`🛡 **${message.author.tag}\` (${message.author.id})\`** has bulk deleted \`${member}\` messages in <#${message.channel.id}> (${message.channel.id})`);
-	} else if (action === "unban") {
+	} else if (action === "unbanned") {
 		return logChannel.send(`🛡 **${member}\`** has been ${action} by **${message.author.tag}\` (${message.author.id})\`** | Reason: \`${reason}\``);
 	}
 	
