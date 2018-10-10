@@ -41,7 +41,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    "description": "TemMutes the given user.",
+    "description": "Tempmutes the given user.",
     "usage": "/tempmute <user> <duration> [reason]",
     "perms": "MANAGE_MESSAGES",
     "state": "functional"
