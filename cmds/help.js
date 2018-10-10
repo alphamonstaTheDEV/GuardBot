@@ -5,21 +5,9 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    let cmds = [];
-    await fs.readdir("./cmds/", async (err, files) => {
-        let jsfiles = files.filter(f => f.split(".").pop() === "js");
-        jsfiles.forEach((f) => {
-            let cmdname = f.replace(".js", "");
-            if (cmdname === "eval" || cmdname === "reload") return;
-            cmds.push(cmdname);
-        });
-    });
+
     if(!args[0]) return message.channel.send("/help <command>")
-    try {
-        const cmd = require(`./${args[0].toLowerCase()}.js`)
-    } catch (err) {
-            return message.channel.send("Unknown command. Commands: `" + cmds.join(", ") + "`");
-    }
+     const cmd = require(`./${args[0].toLowerCase()}.js`)
     let help = new Discord.RichEmbed()
     .setTitle(`${args[0]} command`)
     .setDescription(cmd.help.description)
