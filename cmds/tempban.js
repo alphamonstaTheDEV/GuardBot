@@ -25,7 +25,6 @@ module.exports.run = async (client, message, args) => {
 
     setTimeout(() => {
         message.guild.unban(user.id);
-        auto.actionTaken(message, "unbanned", user.id, reason);
         auto.log(message, "unbanned", user.id, reason);
     }, ms(duration));
 
