@@ -6,7 +6,6 @@ const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     let cmds = [];
-    message.delete()
     await fs.readdir("./cmds/", async (err, files) => {
         let jsfiles = files.filter(f => f.split(".").pop() === "js");
         jsfiles.forEach((f) => {
@@ -16,10 +15,11 @@ module.exports.run = async (client, message, args) => {
         });
     });
     if(!args[0]) return message.channel.send("/help <command>")
-    
-    const cmd = require(`./${args[0].toLowerCase()}.js`).catch(err => {
+    try {
+        const cmd = require(`./${args[0].toLowerCase()}.js`)
+    } catch (err) {
             return message.channel.send("Unknown command. Commands: `" + cmds.join(", ") + "`");
-    })
+    }
     let help = new Discord.RichEmbed()
     .setTitle(`${args[0]} command`)
     .setDescription(cmd.help.description)
