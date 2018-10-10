@@ -6,6 +6,7 @@ const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     let cmds = [];
+    const cmd;
     await fs.readdir("./cmds/", async (err, files) => {
         let jsfiles = files.filter(f => f.split(".").pop() === "js");
         jsfiles.forEach((f) => {
@@ -16,7 +17,7 @@ module.exports.run = async (client, message, args) => {
     });
     if(!args[0]) return message.channel.send("/help <command>")
     try {
-        const cmd = require(`./${args[0].toLowerCase()}.js`)
+        cmd = require(`./${args[0].toLowerCase()}.js`)
     } catch (err) {
             return message.channel.send("Unknown command. Commands: `" + cmds.join(", ") + "`");
     }
