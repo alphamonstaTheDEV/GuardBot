@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     "description": "Sends your suggestion for the GearBot to Developers.",
-    "usage": "/botsuggestion <a suggestion for the bot>",
+    "usage": "/botsuggest <a suggestion for the bot>",
     "perms": "USER",
     "state": "functional"
 }
