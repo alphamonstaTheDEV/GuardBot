@@ -11,6 +11,7 @@ module.exports.run = async (client, message, args) => {
         if (!parseInt(args[0])) return message.channel.send("**ERROR**: \`/hug **<user>**\`");
         user = message.guild.members.get(args[0]);
     }
+    if (user == message.member) return message.reply("I'll hug you instead :hugging:")
     randomTxt1 = array[Math.floor(Math.random()* array.length)].replace("{user}", `<@${message.author.id}>`)
     randomTxtFinal = randomTxt1.replace("{user2}", `<@${user.id}>`)
     message.channel.send(randomTxtFinal);
