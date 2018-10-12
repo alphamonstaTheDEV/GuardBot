@@ -44,7 +44,7 @@ const giveaway = async (client, message, args) => {
             winners.push(allUsers[Math.floor(Math.random() * allUsers.length)])
         }
 
-        message.channel.send(`Winner(s) of the \`${Title}\` giveaway are/is: <${winners.join("@>, <@")}> | Congrats!`)
+        message.channel.send(`Winner(s) of the \`${Title}\` giveaway are/is: <@${winners.join(">, <@")}> | Congrats!`)
     })
 }
 
