@@ -4,6 +4,7 @@ const errors = require("../utils/errors.js");
 const auto = require("../utils/auto.js");
 const config = require("../config.json");
 const ms = require("ms");
+const giveawayEmote = "✅"
 module.exports.run = async (client, message, args) => {
 
     if (!config.ownerID.includes(message.author.id)) return message.channel.send("Soon:tm:")
@@ -27,26 +28,23 @@ const giveaway = (client, message, args) => {
         .setColor(0x0000ff)
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setTitle("Giveaway Started!")
-        .setDescription(Title + "\n\n*to enter, React with :bacon:!*")
+        .setDescription(Title + "\n\n*to enter, React with :white_check_mark:!*")
         .setFooter(`${winnerCount} winners. | Ends at: ${Date.now() + ms(duration)}`)
-    message.channel.send(embed).then(msg => {
-        msg.react("🥓")
-        setTimeout(() => {
-            let users = msg.reactions.array().indexOf("🥓").members
-            let winnerz = []
-            console.log(users);
-           
-                while (winnerz.length < winnerCount) {
-                    let randomPushIndex = Math.floor(Math.random() * users[0].message.users.length)
-                    winnerz.push(users[0].message.users[randomPushIndex].id);
-                }
+    await message.channel.send(embed).then(msg => {
+        const filter = (reaction) => reaction.emoji.name === giveawayEmote;
+        let allUsers = []
+        let winners = []
+        await msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
+            reactions.get(giveawayEmote).users.forEach(user => {
+                allUsers.push(user.id);
+            });
+        })
 
-            embed.setColor(0x010101)
-            embed.setTitle("Giveaway Ended!")
-            embed.setFooter()
-            msg.edit(embed);
-            message.channel.send(`Winner(s) of \`${Title}\` giveaway: <@${winnerz.join("> | <@")}> !`);
-        }, ms(duration));
+        while (winners.length < winnerCount) {
+            winners.push(allUsers[Math.floor(Math.random() * allUsers.length)])
+        }
+
+        message.channel.send(`Winner(s) of the \`${Title}\` giveaway are/is: <${winners.join("@>, <@")}> | Congrats!`)
     })
 }
 
