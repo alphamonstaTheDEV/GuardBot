@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
     return;
 }
 
-const giveaway = (client, message, args) => {
+const giveaway = async (client, message, args) => {
     let duration = args[0];
     let winnerCount = parseInt(args[1]);
     let Title = args.slice(2).join(" ");
