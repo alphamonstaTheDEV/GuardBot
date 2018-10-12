@@ -31,6 +31,7 @@ const giveaway = async (client, message, args) => {
         .setDescription(Title + "\n\n*to enter, React with :white_check_mark:!*")
         .setFooter(`${winnerCount} winners. | Ends at: ${Date.now() + ms(duration)}`)
     await message.channel.send(embed).then(async msg => {
+        await msg.react(giveawayEmote)
         const filter = (reaction) => reaction.emoji.name === giveawayEmote;
         let allUsers = []
         let winners = []
