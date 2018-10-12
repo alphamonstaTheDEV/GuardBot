@@ -42,6 +42,8 @@ const giveaway = async (client, message, args) => {
         })
 
         while (winners.length < winnerCount) {
+            let www = allUsers[Math.floor(Math.random() * allUsers.length)];
+            if (allUsers.includes(www) || www == client.id) return;
             winners.push(allUsers[Math.floor(Math.random() * allUsers.length)])
         }
 
