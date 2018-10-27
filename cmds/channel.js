@@ -29,14 +29,19 @@ module.exports.run = async (client, message, args) => {
         let channelD = message.guild.channels.get(args[1]) || message.guild.channels.find("name", args.slice(1).join(" ")) || args[1]
         channelD.delete()
         message.channel.send(`:ok_hand: \`${name}\` named channel deleted!`)
+    } else if (action == "rename") {
+        if (!args[0] || !args[1]) return message.channel.send("**ERROR**: \`/channel <rename> <NewName>\`");
+        let name = message.channel.name;
+        await message.channel.setName(args.slice(0).join(" "));
+        message.channel.send("Done! changed channel name from `" + name + "` to `" + message.channel.name + "`")
     }
     
 
 }
 
 module.exports.help = {
-    "description": "Deletes given amount of messages.",
-    "usage": "/channel <create> <text/voice> <ChannelName> \n /channel <delete> <ChannelName>",
+    "description": "Creates/Deletes/Renames a channel.",
+    "usage": "/channel <create> <text/voice> <ChannelName> \n /channel <delete> <ChannelName> \n /channel <rename> <NewName>",
     "perms": "MANAGE_CHANNELS",
     "state": "functional"
 }
