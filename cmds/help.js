@@ -28,3 +28,10 @@ module.exports.run = async (client, message, args) => {
     }
     message.channel.send(help);
 }
+
+module.exports.help = {
+    "description": "Help",
+    "usage": "/help <command>",
+    "perms": "USER",
+    "state": "functional"
+}

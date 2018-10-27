@@ -25,6 +25,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Gives information about given user.",
     "usage": "",
-    "perms": "",
-    "state": ""
+    "perms": "USER",
+    "state": "unavailable"
 }
