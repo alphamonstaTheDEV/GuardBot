@@ -24,3 +24,10 @@ function clean(text) {
     else
         return text;
 }
+
+module.exports.help = {
+    "description": "a",
+    "usage": "a",
+    "perms": "a",
+    "state": "a"
+}
