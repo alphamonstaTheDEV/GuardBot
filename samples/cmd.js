@@ -8,3 +8,10 @@ module.exports.run = async (client, message, args) => {
     //if (!config.ownerID.includes(message.author.id)) return;
     //code here
 }
+
+module.exports.help = {
+    "description": "",
+    "usage": "",
+    "perms": "",
+    "state": ""
+}
