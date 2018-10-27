@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const talkedRecently = new Set();
 const client = new Discord.Client({ disableEveryone: true });
 const pref = process.env.prefix;
-
+client.ownerID = "316641074967871500"
 client.on("channelCreate", async channel => {
     let logChannel = channel.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
@@ -47,7 +47,7 @@ client.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
 
-    if (!message.content.startsWith(pref)) return;
+    if (!message.content.startsWith(pref) || !message.content.startsWith("b@")) return;
     const args = message.content.slice(pref.length).trim().split(/ +/g);
     // if (!message.guild.members.get(client.user.id).hasPermission("ADMINISTRATOR")) return message.channel.send("I require `ADMINISTRATOR` permission for all my commands.")
     let doesntHavePerms = [];
@@ -57,8 +57,13 @@ client.on("message", async message => {
     if (doesntHavePerms[0]) return message.channel.send(`I require \`${doesntHavePerms.join(", ")}\` permissions to work perfectly.`)
 
     const command = args.shift().toLowerCase();
+    if (message.content.startsWith("b@") && message.author.id == client.ownerID) {
+        let commandFile = require(`./beta/${command}.js`);
+        return commandFile.run(client, message, args);
+    } else {
         let commandFile = require(`./cmds/${command}.js`);
         return commandFile.run(client, message, args);
+    }
 
 
 });
