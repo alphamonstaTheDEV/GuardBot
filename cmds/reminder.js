@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send("Ok, I'll remind you in `" + duration + "`")
     setTimeout(() => {
         message.reply(`Hey! You wanted me to remind you this: ${text}`);
-    }, ms(duartion));
+    }, ms(duration));
 }
 
 module.exports.help = {
