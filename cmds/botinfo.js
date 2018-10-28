@@ -31,3 +31,10 @@ module.exports.run = async (client, message, args) => {
     })
     })
 }
+
+module.exports.help = {
+    "description": "Gives information about the bot.",
+    "usage": "/botinfo",
+    "perms": "USER",
+    "state": "functional"
+}
