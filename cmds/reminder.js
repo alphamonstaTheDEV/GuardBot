@@ -5,7 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 const ms = require("ms");
 module.exports.run = async (client, message, args) => {
-    if (!args[0] || !args[1]) return message.channel.send(help.usage);
+    if (!args[1]) return message.channel.send(help.usage);
     let duration = args[0]
     let text = args.slice(1).join(" ")
     message.channel.send("Ok, I'll remind you in `" + duration + "`")
