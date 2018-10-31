@@ -4,6 +4,8 @@ const talkedRecently = new Set();
 const client = new Discord.Client({ disableEveryone: true });
 const pref = process.env.prefix;
 client.ownerID = "316641074967871500"
+
+
 client.on("channelCreate", async channel => {
     let logChannel = channel.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
@@ -30,6 +32,7 @@ client.on("messageDelete", async message => {
 
 client.on("ready", () => {
     console.log("I am ready to roll.")
+    client.channels.get("498011161891962910").send("Build Success.")
     client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
 
 });
