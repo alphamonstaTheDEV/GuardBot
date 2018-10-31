@@ -20,11 +20,13 @@ module.exports.run = async (client, message, args) => {
     .addField("Joined At:", user.joinedAt, 1)
     .addField("Last Message:", user.lastMessage.createdAt)
     .addField("Roles:", `<@${user.roles.join("> <@")}`, 1)
+
+    message.channel.send(embed)
 }
 
 module.exports.help = {
     "description": "Gives information about given user.",
     "usage": "",
     "perms": "USER",
-    "state": "unavailable"
+    "state": "beta"
 }
