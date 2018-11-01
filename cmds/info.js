@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Created At:", user.user.createdAt, 1)
     .addField("Joined At:", user.joinedAt, 1)
     .addField("Last Message:", user.lastMessage.createdAt)
-    .addField("Roles:", `<@${user.roles.join("> <@")}`, 1)
+    //.addField("Roles:", `<@${user.roles.join("> <@")}`, 1)
 
     message.channel.send(embed)
 }
