@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
         case "Fix Needed":
         help.setColor(0xffff00);
         break;
-        case "beta": 
+        case "beta":
         help.setColor(0x010101);
         break;
     }
