@@ -25,6 +25,9 @@ module.exports.run = async (client, message, args) => {
         case "Fix Needed":
         help.setColor(0xffff00);
         break;
+        case "beta": 
+        help.setColor(0x010101);
+        break;
     }
     message.channel.send(help);
 }

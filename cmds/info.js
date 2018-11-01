@@ -11,14 +11,15 @@ module.exports.run = async (client, message, args) => {
         user = message.guild.members.get(`${args[0]}`);
     }
     let embed = new Discord.RichEmbed()
-    .setAuthor(message.author.tag, message.author.avatarURL)
-    .setTitle(`User Info of ${user.user.tag}`)
-    .setColor(0xffffff)
-    .setThumbnail(user.user.avatarURL)
-    .addField("User ID:", user.id, 1)
-        .addField("Created At:", user.user.createdAt.toISOString().replace(/T/, ' ').replace(/..+/, ''), 1)
-        .addField("Joined At:", user.joinedAt.toISOString().replace(/T/, ' ').replace(/..+/, ''), 1)
-        .addField("Last Message:", user.lastMessage.createdAt.toISOString().replace(/T/, ' ').replace(/..+/, ''))
+        .setAuthor(message.author.tag, message.author.avatarURL)
+        .setTitle(`User Info of ${user.user.tag}`)
+        .setColor(0xffffff)
+        .setThumbnail(user.user.avatarURL)
+        .addField("User ID:", user.id, 1)
+        .addField("Created At:", user.user.createdAt.replace("(Coordinated Universal Time)", ""), 1)
+        .addField("Joined At:", user.joinedAt.replace("(Coordinated Universal Time)", ""), 1)
+        .addField("Last Message:", user.lastMessage.createdAt.replace("(Coordinated Universal Time)", ""))
+        .addField("")
     //.addField("Roles:", `<@${user.roles.join("> <@")}`, 1)
 
     message.channel.send(embed)
@@ -26,7 +27,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     "description": "Gives information about given user.",
-    "usage": "",
+    "usage": "/info <user>",
     "perms": "USER",
     "state": "beta"
 }

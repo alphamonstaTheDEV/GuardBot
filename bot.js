@@ -62,8 +62,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
         let commandFile = require(`./cmds/${command}.js`);
         if (!commandFile.help && command != "eval") return;
-    if (commandFile.help.status == "unavailable" && message.author.id != client.ownerID) return message.channel.send("This command is unavailable at the moment.")
-    if (commandFile.help.status == "beta" && client.ownerID != message.author.id) return message.channel.send("Soon:tm:")
+    if (commandFile.help.status == "unavailable" && commandFile.help.status == "beta" && message.author.id != client.ownerID) return message.channel.send("This command is unavailable at the moment.")
         return commandFile.run(client, message, args);
 
 
