@@ -16,9 +16,9 @@ module.exports.run = async (client, message, args) => {
     .setColor(0xffffff)
     .setThumbnail(user.user.avatarURL)
     .addField("User ID:", user.id, 1)
-    .addField("Created At:", user.user.createdAt, 1)
-    .addField("Joined At:", user.joinedAt, 1)
-    .addField("Last Message:", user.lastMessage.createdAt)
+        .addField("Created At:", user.user.createdAt.toISOString().replace(/T/, ' ').replace(/..+/, ''), 1)
+        .addField("Joined At:", user.joinedAt.toISOString().replace(/T/, ' ').replace(/..+/, ''), 1)
+        .addField("Last Message:", user.lastMessage.createdAt.toISOString().replace(/T/, ' ').replace(/..+/, ''))
     //.addField("Roles:", `<@${user.roles.join("> <@")}`, 1)
 
     message.channel.send(embed)
