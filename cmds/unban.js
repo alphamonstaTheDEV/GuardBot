@@ -22,6 +22,6 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     "description": "Unbans the given user.",
     "usage": "/unban <userID> [reason]",
-    "perms": "ADMINISTRATOR",
+    "perms": "BAN_MEMBERS",
     "state": "functional"
 }
