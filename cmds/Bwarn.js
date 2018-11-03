@@ -1,4 +1,4 @@
-const fs = require(`fs`);
+    const fs = require(`fs`);
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 const auto = require("../utils/auto.js");
@@ -22,7 +22,7 @@ module.exports.help = {
     "description": "Warns the given user.",
     "usage": "/warn <user> [reason]",
     "perms": "MANAGE_MESSAGES",
-    "state": "beta"
+    "state": "Needs Fix"
 }
 
 
