@@ -56,7 +56,7 @@ module.exports.fetchInf = (message, memberID, infType) => {
 	if(!warning_channel) return "noChannel"
 	warning_channel.fetchMessages().then(messages => {
 		let fmessages = messages.filter(msg => msg.content.startsWith(memberID))
-		if(infType = "all") {
+		if(infType == "all") {
 
 		} else {
 			fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`)).then(msgs => {
