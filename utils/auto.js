@@ -7,7 +7,7 @@ const config = require("../config.json");
 module.exports.actionTaken = (message, action, member, reason) => {
 	if (!reason) {reason = "Not given."}
 	if (action === "force banned") {
-		return message.channel.send(`🛡 *\`*${member}\`** has been ${action} by **\`${message.author.tag} (${message.author.id})\`** | Reason: \`${reason}\``);
+		return message.channel.send(`🛡 \`${member}\` has been ${action} by \`${message.author.tag} (${message.author.id})\` | Reason: \`${reason}\``);
 	} else if (action === "unbanned") {
 		return message.channel.send(`🛡 \`**${member}\`** has been ${action} by **\`${message.author.tag} (${message.author.id})\`** | Reason: \`${reason}\``);
 	}
