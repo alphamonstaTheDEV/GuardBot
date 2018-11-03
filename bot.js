@@ -15,14 +15,14 @@ client.on("channelCreate", async channel => {
 client.on("guildMemberAdd", async member => {
     let logChannel = member.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
-    logChannel(`:new: Member: **${member.tag} (${member.id})** (Created ${ Date.now() - createdAt})`)
+    let createdAt = new Date(member.user.createdAt)
+    logChannel.send(`:new: Member: **${member.tag} (${member.id})** (Created ${ Date.now() - createdAt})`)
 })
 
 client.on("guildMemberRemove", async member => {
     let logChannel = member.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
-    let createdAt = new Date(member.user.createdAt)
-    logChannel(`:no_entry: Member has left: **${member.tag} (${member.id})**`)
+    logChannel.send(`:no_entry: Member has left: **${member.tag} (${member.id})**`)
 })
 
 
