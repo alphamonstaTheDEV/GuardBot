@@ -60,7 +60,7 @@ module.exports.fetchInf = (message, memberID, infType) => {
 
 		} else {
 			let msgs = fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`))
-				console.log(msgs)
+				console.log(msgs.map(msg => {return msg.content}))
 			
 		}
 	})
