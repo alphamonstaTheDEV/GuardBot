@@ -41,3 +41,27 @@ module.exports.log = (message, action, member, reason) => {
 	}
 
 }
+
+module.exports.getUser = (message) => {
+	let member = message.mentions.members.first()
+	if (!member) {
+		if (!parseInt(args[0])) return "error"
+		member = message.guild.users.get(args[0]);
+	}
+	return member;
+}
+
+module.exports.fetchInf = (message, memberID, infType) => {
+	let warning_channel = message.guild.channels.find("name", "gb-warnings");
+	if(!warning_channel) return "noChannel"
+	warning_channel.fetchMessages().then(messages => {
+		let fmessages = messages.filter(message.context.startsWith(memberID))
+		if(infType = "all") {
+
+		} else {
+			fmessages.filter(message.context.startsWith(`${memberID} ${infType}`)).then(msgs => {
+				console.log(msgs)
+			})
+		}
+	})
+}

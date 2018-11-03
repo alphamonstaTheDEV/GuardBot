@@ -12,14 +12,10 @@ module.exports.run = async (client, message, args) => {
     }
     let embed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
-        .setTitle(`User Info of ${user.user.tag}`)
+        .setTitle(`Info of ${user.user.tag}`)
         .setColor(0xffffff)
         .setThumbnail(user.user.avatarURL)
-        .addField("User ID:", user.id, 1)
-        .addField("Created At:", user.user.createdAt.replace("(Coordinated Universal Time)", ""), 1)
-        .addField("Joined At:", user.joinedAt.replace("(Coordinated Universal Time)", ""), 1)
-        .addField("Last Message:", user.lastMessage.createdAt.replace("(Coordinated Universal Time)", ""))
-        .addField("")
+        .addField("⚫**General Information**", `ID: ${user.id}\nUser: <@${user.id}>`)
     //.addField("Roles:", `<@${user.roles.join("> <@")}`, 1)
 
     message.channel.send(embed)

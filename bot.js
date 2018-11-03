@@ -12,6 +12,13 @@ client.on("channelCreate", async channel => {
     logChannel.send(`:heavy_plus_sign: A \`${channel.type}\` channel has been created. \`${channel.name} (${channel.id})\``);
 })
 
+client.on("guildMemberAdd", async member => {
+    let logChannel = member.guild.channels.find("name", "guardbot-log");
+    if (!logChannel) return;
+    let createdAt = new Date(member.user.createdAt())
+    logChannel(`:new: Member: **${member.tag} (${member.id})** (Created ${ Date.now() - createdAt})`)
+})
+
 client.on("channelDelete", async channel => {
     let logChannel = channel.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
