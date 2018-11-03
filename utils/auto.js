@@ -59,9 +59,9 @@ module.exports.fetchInf = (message, memberID, infType) => {
 		if(infType == "all") {
 
 		} else {
-			fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`)).then(msgs => {
+			let msgs = fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`))
 				console.log(msgs)
-			})
+			
 		}
 	})
 }
