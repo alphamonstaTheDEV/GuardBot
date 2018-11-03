@@ -5,7 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    let user = auto.getUser(message);
+    let user = auto.getUser(message, args);
     if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     let reason = args.slice(1).join(" ");
     mutedRole = message.guild.roles.find("name", "Muted")

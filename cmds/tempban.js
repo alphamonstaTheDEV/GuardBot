@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) return;
     let duration = args[1]
     let reason = args.slice(2).join(" ");
-    let user = auto.getUser(message);
+    let user = auto.getUser(message, args);
     if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     if (user == message.member) return;
     console.log("goin great");

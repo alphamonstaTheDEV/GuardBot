@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
         });
     }
     mutedRole = message.guild.roles.find("name", "Muted")
-    let user = auto.getUser(message);
+    let user = auto.getUser(message, args);
     if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     let reason = args.slice(2).join(" ");
     let duration = args[1]
