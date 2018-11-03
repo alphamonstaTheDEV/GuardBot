@@ -20,12 +20,9 @@ module.exports.run = async (client, message, args) => {
         });
     }
     mutedRole = message.guild.roles.find("name", "Muted")
-    let user = message.mentions.members.first();
+    let user = auto.getUser(message);
+    if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     let reason = args.slice(2).join(" ");
-    if (!user) {
-        if (!parseInt(args[0])) return message.channel.send("**ERROR**: \`/tempmute **<user>** <duration> [reason]\`");
-        user = message.guild.members.get(args[0]);
-    }
     let duration = args[1]
     if (!duration) return message.channel.send("**ERROR**: \`/tempmute <user> **<duration>** [reason]\`");
     if (user == message.member) return;

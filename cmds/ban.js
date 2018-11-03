@@ -6,12 +6,10 @@ const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) return;
-    let user = message.mentions.members.first();
+    let user = auto.getUser(message);
+    if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     let reason = args.slice(1).join(" ");
-    if (!user) {
-        if (!parseInt(args[0])) return message.channel.send("**ERROR**: \`/ban **<user>** [reason]\`");
-        user = message.guild.members.get(`${args[0]}`);
-    }    
+
     if (user == message.member) return;
     console.log("goin great");
     if (!user.bannable) return message.channel.send(`${user.user.tag} can't be banned. \`bannable == False\``)

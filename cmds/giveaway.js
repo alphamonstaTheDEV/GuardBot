@@ -55,5 +55,5 @@ module.exports.help = {
     "description": "COMMAND UNAVAILABLE",
     "usage": "/giveaway <duration> <WinnerAmount> <Title>",
     "perms": "ADMINISTRATOR",
-    "state": "unavailable" 
+    "state": "in beta" 
 }

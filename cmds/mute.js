@@ -19,12 +19,9 @@ module.exports.run = async (client, message, args) => {
         });
     }
     
-    let user = message.mentions.members.first();
+    let user = auto.getUser(message);
+    if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     let reason = args.slice(1).join(" ");
-    if (!user) {
-        if (!parseInt(args[0])) return message.channel.send("**ERROR**: \`/mute **<user>** [reason]\`");
-        user = message.guild.members.get(args[0]);
-    }
     if (user == message.member) return;
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return;
     if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send(`${user.user.tag} has a higher role than you.`);

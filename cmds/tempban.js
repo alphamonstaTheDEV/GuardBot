@@ -6,13 +6,10 @@ const config = require("../config.json");
 const ms = require("ms");
 module.exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) return;
-    let user = message.mentions.members.first();
     let duration = args[1]
     let reason = args.slice(2).join(" ");
-    if (!user) {
-        if (!parseInt(args[0])) return message.channel.send(help.usage);
-        user = message.guild.members.get(`${args[0]}`);
-    }    
+    let user = auto.getUser(message);
+    if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     if (user == message.member) return;
     console.log("goin great");
     if (!user.bannable) return message.channel.send(`${user.user.tag} can't be Tempbanned. \`bannable == False\``)

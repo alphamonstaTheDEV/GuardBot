@@ -17,16 +17,16 @@ module.exports.run = async (client, message, args) => {
 
     switch (cmd.help.state) {
         case "unavailable":
-        help.setColor(0xff0000);
+        help.setColor(0x010101);
         break;
         case "functional":
         help.setColor(0x00ff00);
         break;
-        case "Fix Needed":
+        case "on repair":
         help.setColor(0xffff00);
         break;
-        case "beta":
-        help.setColor(0x010101);
+        case "in beta":
+        help.setColor(0xff0000);
         break;
     }
     message.channel.send(help);

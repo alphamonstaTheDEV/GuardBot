@@ -25,5 +25,5 @@ module.exports.help = {
     "description": "Gives information about given user.",
     "usage": "/info <user>",
     "perms": "USER",
-    "state": "beta"
+    "state": "in beta"
 }

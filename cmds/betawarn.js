@@ -22,7 +22,7 @@ module.exports.help = {
     "description": "Warns the given user.",
     "usage": "/warn <user> [reason]",
     "perms": "MANAGE_MESSAGES",
-    "state": "Needs Fix"
+    "state": "functional"
 }
 
 
