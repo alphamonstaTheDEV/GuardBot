@@ -52,7 +52,7 @@ module.exports.getUser = (message) => {
 }
 
 module.exports.fetchInf = (message, memberID, infType) => {
-	let warning_channel = message.guild.channels.find("name", "gb-warnings");
+	let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
 	if(!warning_channel) return "noChannel"
 	warning_channel.fetchMessages().then(messages => {
 		let fmessages = messages.filter(message.context.startsWith(memberID))

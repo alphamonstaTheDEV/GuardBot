@@ -5,7 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    let warning_channel = message.guild.channels.find("name", "gb-warnings");
+    let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
     let user = auto.getUser(message);
     let reason = args.slice(1).join(" ")
     if (user == "error") return message.channel.send(`Invalid \`<user>\``);
@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!warning_channel) return user.user.send("You have been warned in `" + message.guild.name +"`\n Reason: `" + reason + "`");
 
-    let warningMessage = `WARNING ${user.id} REASON: ${reason} MODERATOR: ${message.author.id} DATE: ${Date.now()}`
+    let warningMessage = `${user.id} WARNING REASON: ${reason} MODERATOR: ${message.author.id} DATE: ${Date.now()}`
     await warning_channel.send(warningMessage)
     auto.log(message, "warned", user, reason)
     auto.actionTaken(message, "warned", user, reason)
