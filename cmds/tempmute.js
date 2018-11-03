@@ -15,8 +15,8 @@ module.exports.run = async (client, message, args) => {
         }).then(role => {
             mutedRole = role;
         })
-        message.guild.channels.forEach(channel => {
-            channel.overwritePermissions()
+        message.guild.channels.map(channel => {
+            channel.overwritePermissions(mutedRole, { SEND_MESSAGES: false }, "Created Muted Role")
         });
     }
     mutedRole = message.guild.roles.find("name", "Muted")

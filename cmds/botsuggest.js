@@ -29,5 +29,5 @@ module.exports.help = {
     "description": "Sends your suggestion for the GearBot to Developers.",
     "usage": "/botsuggest <a suggestion for the bot>",
     "perms": "USER",
-    "state": "functional"
+    "state": "in beta"
 }
