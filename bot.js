@@ -1,9 +1,8 @@
 const fs = require(`fs`);
 const Discord = require("discord.js");
-const talkedRecently = new Set();
 const client = new Discord.Client({ disableEveryone: true });
 const pref = process.env.prefix;
-client.ownerID = "316641074967871500"
+client.ownerID = "316641074967871500";
 
 
 client.on("channelCreate", async channel => {
@@ -31,12 +30,6 @@ client.on("channelDelete", async channel => {
     if (!logChannel) return;
     logChannel.send(`:heavy_minus_sign: A \`${channel.type}\` channel has been deleted. \`${channel.name} (${channel.id})\``);
 })
-
-/*client.on("channelUpdate", (oldc, newc) => {
-    let logChannel = channel.guild.channels.find("name", "guardbot-log");
-    if (!logChannel) return;
-    logChannel.send(`:arrow_up: \`${oldc.id}\` has been updated. *Bot will give more information soon.*`)
-})*/
 
 client.on("messageDelete", async message => {
     let logChannel = message.guild.channels.find("name", "guardbot-log");
@@ -76,7 +69,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
         let commandFile = require(`./cmds/${command}.js`);
         if (!commandFile.help && command != "eval") return;
-    if (commandFile.help.status == "unavailable" && commandFile.help.status == "beta" && message.author.id != client.ownerID) return message.channel.send("This command is unavailable at the moment.")
+    if (commandFile.help.status == "unavailable" || commandFile.help.status == "beta" && message.author.id != client.ownerID) return message.channel.send("This command is unavailable at the moment.")
         return commandFile.run(client, message, args);
 
 
