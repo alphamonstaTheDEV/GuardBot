@@ -21,7 +21,7 @@ client.on("guildMemberAdd", async member => {
 client.on("guildMemberRemove", async member => {
     let logChannel = member.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
-    let createdAt = new Date(member.createdAt())
+    let createdAt = new Date(member.user.createdAt)
     logChannel(`:no_entry: Member has left: **${member.tag} (${member.id})**`)
 })
 
