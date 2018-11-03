@@ -55,7 +55,7 @@ module.exports.fetchInf = (message, memberID, infType) => {
 	let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
 	if(!warning_channel) return "noChannel"
 	warning_channel.fetchMessages().then(messages => {
-		let fmessages = messages.filter(message.context.startsWith(memberID))
+		let fmessages = messages.filter(msg => msg.context.startsWith(memberID))
 		if(infType = "all") {
 
 		} else {
