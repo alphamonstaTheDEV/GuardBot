@@ -14,8 +14,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!warning_channel) return user.user.send("You have been warned in `" + message.guild.name +"`\n Reason: `" + reason + "`");
 
-    let warningMessage = `${user.id} WARNING REASON: ${reason} MODERATOR: ${message.author.id} DATE: ${Date.now()}`
-    await warning_channel.send(warningMessage)
+    await warning_channel.send(`${user.id} WARNING REASON: ${reason} MODERATOR: ${message.author.id} DATE: ${Date.now()}`)
     auto.log(message, "warned", user, reason)
     auto.actionTaken(message, "warned", user, reason)
 }
