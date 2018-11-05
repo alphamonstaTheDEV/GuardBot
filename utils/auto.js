@@ -55,7 +55,7 @@ module.exports.fetchInf = (message, memberID, infType) => {
 	let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
 	if(!warning_channel) return "noChannel"
 	let arrayOfInfs;
-	warning_channel.fetchMessages({after: warning_channel.createdAt}).then(messages => {
+	warning_channel.fetchMessages({after: Date(warning_channel.createdAt)}).then(messages => {
 		let fmessages = messages.filter(msg => msg.content.startsWith(memberID))
 		if(infType == "all") {
 			arrayOfInfs = msgs.map(msg => { return msg.content })
