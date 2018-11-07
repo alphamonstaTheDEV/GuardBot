@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
     }).then(messages => message.channel.bulkDelete(messages));
 
     message.channel.send("Deleted **" + messagecount + "** messages.").then(msg => {msg.delete(8000)})
-    auto.log(message, "clear", amount)
+    auto.log(message, "clear", messagecount)
 }
 
 module.exports.help = {
