@@ -6,7 +6,7 @@ const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
-    let user = auto.getUser(message);
+    let user = auto.getUser(message, args);
     let reason = args.slice(1).join(" ")
     if (user == "error") return message.channel.send(`Invalid \`<user>\``);
     
