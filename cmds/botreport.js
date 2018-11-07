@@ -6,7 +6,7 @@ const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
     let bugChannel = client.channels.get("498009184097533963");
-    if(message.channel.id = bugChannel.id) {
+    if(message.channel.id == bugChannel.id) {
         let command = args[0]
         let bugMessage = bugChannel.fetchMessage(args[1]);
         if (!bugMessage) return message.channel.send("Error: Couldn't fetch that report.").then(msg => msg.delete(10000));
@@ -31,5 +31,5 @@ module.exports.help = {
     "description": "Report bugs to GuardBot Developers.",
     "usage": "/botreport --desc <short description of the bug>",
     "perms": "USER",
-    "state": "in beta"
+    "state": ""
 }
