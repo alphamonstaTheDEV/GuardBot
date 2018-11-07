@@ -58,7 +58,7 @@ module.exports.fetchInf = (message, memberID, infType) => {
 	warning_channel.fetchMessages().then(messages => {
 		let fmessages = messages.filter(msg => msg.content.startsWith(memberID))
 		if(infType == "all") {
-			arrayOfInfs = msg.map(msgss => { return msgss.content })
+			arrayOfInfs = fmessages.map(msgss => { return msgss.content })
 			} else {
 			let msgs = fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`))
 			arrayOfInfs = msgs.map(msg => {return msg.content})
