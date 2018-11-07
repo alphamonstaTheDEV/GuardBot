@@ -44,10 +44,12 @@ client.on("ready", () => {
 
 });
 client.on("guildCreate", guild => {
+    client.channels.get("498011161891962910").send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
 
 });
 client.on("guildDelete", guild => {
+    client.channels.get("498011161891962910").send(`I have been removed from: ${guild.name} (id: ${guild.id})`);
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
 });
 
