@@ -46,7 +46,7 @@ module.exports.getUser = (message, args) => {
 	let member = message.mentions.members.first()
 	if (!member) {
 		if (!parseInt(args[0])) return "error"
-		member = message.guild.users.get(args[0]);
+		member = message.guild.members.get(args[0]);
 	}
 	return member;
 }
