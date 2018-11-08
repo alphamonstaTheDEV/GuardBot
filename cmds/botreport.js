@@ -13,13 +13,13 @@ module.exports.run = async (client, message, args) => {
             //if (bugMessage.author.id == message.author.id) return;
             switch (command) {
                 case "approve":
-                    bugMessage.edit(bugMessage.content + `\n:white_check_mark:**${message.author.tag}** | \`${args.slice(3).join(" ")}\``)
+                    bugMessage.edit(bugMessage.content + `\n:white_check_mark:**${message.author.tag}** | \`${args.slice(2).join(" ")}\``)
                     break;
                 case "deny":
-                    bugMessage.edit(bugMessage.content + `\n:negative_squared_cross_mark:**${message.author.tag}** | \`${args.slice(3).join(" ")}\``)
+                    bugMessage.edit(bugMessage.content + `\n:negative_squared_cross_mark:**${message.author.tag}** | \`${args.slice(2).join(" ")}\``)
                     break;
                 case "note":
-                    bugMessage.edit(bugMessage.content + `\n:pencil:**${message.author.tag}** | \`${args.slice(3).join(" ")}\``)
+                    bugMessage.edit(bugMessage.content + `\n:pencil:**${message.author.tag}** | \`${args.slice(2).join(" ")}\``)
                     break;
                 default:
                     message.channel.send("Error: Unknown command.").then(msg => msg.delete(10000));
