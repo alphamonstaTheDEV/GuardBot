@@ -26,7 +26,9 @@ module.exports.run = async (client, message, args) => {
             }
         })
     } else {
-        bugChannel.send(`**───────────────────\n${message.author.tag}** reported:\n ${args.join(" ")}\n\n The bug report above needs to be approved.`);
+        bugChannel.send(`**───────────────────\n${message.author.tag}** reported:\n ${args.join(" ")}\n\n The bug report above needs to be approved.\n`).then(msg => {
+            msg.edit(msg.content + `ID: ${msg.id}\n**Reproducibility:**`);
+        })
     }
 
 }
