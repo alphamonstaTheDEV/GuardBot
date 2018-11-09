@@ -33,14 +33,13 @@ const giveaway = async (client, message, args) => {
    
         await message.channel.send(embed).then(async msg => {
         await msg.react(giveawayEmote)
-        const filter = (reaction) => reaction.emoji === giveawayEmote;
+        const filter = (reaction) => reaction.emoji.name === giveawayEmote;
         let allUsers = []
         let winners = []
         await msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
             reactions.get(giveawayEmote).users.map(user => {
                 allUsers.push(user.id);
             });
-            console.log(reactions.get(giveawayEmote).emoji);
             
         })
 
