@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Info")
         .setDescription("Hi!\nI am a complete moderation bot made by C4Navar#5799(316641074967871500).\nIf you have any questions/feedbacks please visit my Discord Server: [Click to Join!](https://discord.gg/CGPsfGd) \n **Future Plans:**\n *Database System soon:tm:\n*With database, more commands soon:tm:")
         .addField("Commands:", `\`${cmds.join(", ")}\``)
-        .addField("You can also create a channel named `guardbot-log` for me to log actions!")
+        .addField("You can also create a channel named `guardbot-log` for me to log actions!", "───────────────────")
         .addField("Invite Link:", "[Click to Invite!](https://discordapp.com/api/oauth2/authorize?client_id=487984632265179178&permissions=8&scope=bot)")
         .setTimestamp()
         .setFooter("<3")
