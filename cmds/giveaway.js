@@ -29,13 +29,15 @@ const giveaway = async (client, message, args) => {
         .setTitle("Giveaway Started!")
         .setDescription(Title + "\n\n*to enter, React with :white_check_mark:!*")
         .setFooter(`${winnerCount} winners. | Ends at: ${Date.now() + ms(duration)}`)
-    await message.channel.send(embed).then(async msg => {
+   
+   
+        await message.channel.send(embed).then(async msg => {
         await msg.react(giveawayEmote)
-        const filter = (reaction) => reaction.emoji.name === giveawayEmote;
+        const filter = (reaction) => reaction.emoji === giveawayEmote;
         let allUsers = []
         let winners = []
         await msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
-            reactions.get(giveawayEmote).members.map(user => {
+            reactions.get(giveawayEmote).users.map(user => {
                 allUsers.push(user.id);
             });
         })
