@@ -49,6 +49,7 @@ const giveaway = async (client, message, args) => {
             if (allUsers.includes(www) || www === client.id) return;
                 winners.push(www);
         }
+            console.log("AAAAAAAAAAAAAAAAAAAAA")
             console.log(allUsers);
 
             console.log(winners.join(">, <@"));
