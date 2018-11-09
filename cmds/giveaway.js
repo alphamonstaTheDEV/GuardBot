@@ -7,7 +7,6 @@ const ms = require("ms");
 const giveawayEmote = "✅"
 module.exports.run = async (client, message, args) => {
 
-    if (!config.ownerID.includes(message.author.id)) return message.channel.send("Soon:tm:")
     let giveawayRole = message.guild.roles.find("name", "giveaway");
     if (!giveawayRole) {
         if (message.member.hasPermission("ADMINISTRATOR") || message.member.id == message.guild.owner.id) return giveaway(client, message, args);

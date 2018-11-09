@@ -5,7 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    if (!config.ownerID.includes(message.author.id)) return;
+    if (!client.ownerID == message.author.id) return;
     try {
         const code = args.join(" ");
         let evaled = eval(code);
