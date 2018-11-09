@@ -67,6 +67,6 @@ module.exports.fetchInf = (message, memberID, infType) => {
 			
 			
 		}
-		console.log(arrayOfInfs);
+		return (arrayOfInfs)
 	})
 }
