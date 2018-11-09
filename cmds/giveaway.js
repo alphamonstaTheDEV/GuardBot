@@ -40,7 +40,7 @@ const giveaway = async (client, message, args) => {
             reactions.get(giveawayEmote).users.map(user => {
                 allUsers.push(user.id);
             });
-            console.log(reactions.get(giveawayEmote));
+            console.log(reactions.get(giveawayEmote).emoji);
             
         })
 
