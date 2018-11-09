@@ -35,7 +35,7 @@ const giveaway = async (client, message, args) => {
         let allUsers = []
         let winners = []
         await msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
-            reactions.get(giveawayEmote).users.map(user => {
+            reactions.get(giveawayEmote).users.foreach(user => {
                 allUsers.push(user.id);
             });
         })
