@@ -36,7 +36,8 @@ const giveaway = async (client, message, args) => {
         const filter = (reaction) => reaction.emoji.name === giveawayEmote;
         let allUsers = []
         let winners = []
-        msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
+        await msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
+            console.log("aaa")
             reactions.get(giveawayEmote).users.map(user => {
                 allUsers.push(user.id);
             });
