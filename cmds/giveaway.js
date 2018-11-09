@@ -33,13 +33,15 @@ const giveaway = async (client, message, args) => {
    
         await message.channel.send(embed).then(async msg => {
         await msg.react(giveawayEmote)
-        const filter = (reaction) => reaction.emoji === giveawayEmote;
+        const filter = (reaction) => reaction.emoji.name === giveawayEmote;
         let allUsers = []
         let winners = []
         await msg.awaitReactions(filter, {time: ms(duration)}).then(reactions => {
             reactions.get(giveawayEmote).users.map(user => {
                 allUsers.push(user.id);
             });
+            console.log(reactions.get(giveawayEmote).name);
+            
         })
 
         while (winners.length < winnerCount) {
@@ -47,7 +49,10 @@ const giveaway = async (client, message, args) => {
             if (allUsers.includes(www) || www === client.id) return;
             winners.push(www)
         }
+            console.log(allUsers);
 
+            console.log(winners.join(">, <@"));
+        
         message.channel.send(`Winner(s) of the \`${Title}\` giveaway are/is: <@${winners.join(">, <@")}> | Congrats!`)
     })
 }
