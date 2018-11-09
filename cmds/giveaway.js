@@ -44,13 +44,10 @@ const giveaway = async (client, message, args) => {
             
         })
             console.log("TTETETTET");
-        while (winners.length != winnerCount) {
+        while (winners.length !== winnerCount) {
             let www = allUsers[Math.floor(Math.random() * allUsers.length)];
-            if (allUsers.includes(www) || www === client.id) {
-
-            } else {
+            if (allUsers.includes(www) || www === client.id) return;
                 winners.push(www);
-            }
         }
             console.log(allUsers);
 
