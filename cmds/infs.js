@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
         array.map(inf => {
             let date = new Date(inf.date)
             let mod = client.users.get(inf.moderator).tag || inf.moderator;
-            let dada = date.toString.replace("(Coordinated Universal Time)", "")
+            let dada = date.toString().replace("(Coordinated Universal Time)", "")
             data.push([dada, user.user.tag, inf.action, inf.moderator, inf.reason])
         })
     })
