@@ -66,7 +66,6 @@ module.exports.fetchInf = (message, memberID, infType) => {
 			arrayOfInfs = msgs.map(msg => {return JSON.parse(msg.content.slice(18))})
 			
 		}
-		console.log(arrayOfInfs);
-		
+		return arrayOfInfs
 	})
 }
