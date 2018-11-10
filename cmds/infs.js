@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args) => {
             bodyRight: `│`,
             bodyJoin: `│`,
 
-            joinBody: `─`,
+            joinBody: ``,
             joinLeft: ``,
             joinRight: ``,
             joinJoin: ``
