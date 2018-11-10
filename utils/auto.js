@@ -50,3 +50,23 @@ module.exports.getUser = (message, args) => {
 	}
 	return member;
 }
+
+module.exports.fetchInf = async (message, memberID, infType) => {
+	let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
+	if(!warning_channel) return "noChannel"
+	let arrayOfInfs;
+	await warning_channel.fetchMessages().then(messages => {
+		let fmessages = messages.filter(msg => msg.content.startsWith(memberID))
+		if(infType == "all") {
+			arrayOfInfs = fmessages.map(msgss => {return JSON.parse(msgss.content.slice(18))})
+			
+			}
+		 else {
+			let msgs = fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`))
+			arrayOfInfs = msgs.map(msg => {return JSON.parse(msg.content.slice(18))})
+			
+		}
+		
+	})
+	return arrayOfInfs;
+}

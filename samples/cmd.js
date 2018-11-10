@@ -5,8 +5,7 @@ const auto = require("../utils/auto.js");
 const config = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
-    //if (!config.ownerID.includes(message.author.id)) return;
-    //code here
+    //if (!client.ownerID == message.author.id) return;
 }
 
 module.exports.help = {
