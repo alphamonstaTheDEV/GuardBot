@@ -20,7 +20,29 @@ module.exports.run = async (client, message, args) => {
             data.push([dada, user.user.tag, inf.action, inf.moderator, inf.reason])
         })
     })
-    output = table.table(data);
+    config = {
+        border: {
+            topBody: `─`,
+            topJoin: ``,
+            topLeft: ``,
+            topRight: ``,
+
+            bottomBody: `─`,
+            bottomJoin: ``,
+            bottomLeft: ``,
+            bottomRight: ``,
+
+            bodyLeft: `│`,
+            bodyRight: `│`,
+            bodyJoin: `│`,
+
+            joinBody: `─`,
+            joinLeft: ``,
+            joinRight: ``,
+            joinJoin: ``
+        }
+    };
+    output = table.table(data, config);
     return message.channel.send("```" + output + "```");
 
 
