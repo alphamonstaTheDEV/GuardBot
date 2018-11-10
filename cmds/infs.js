@@ -22,12 +22,12 @@ module.exports.run = async (client, message, args) => {
     })
     let config = {
         border: {
-            topBody: `─`,
+            topBody: ``,
             topJoin: ``,
             topLeft: ``,
             topRight: ``,
 
-            bottomBody: `─`,
+            bottomBody: ``,
             bottomJoin: ``,
             bottomLeft: ``,
             bottomRight: ``,
