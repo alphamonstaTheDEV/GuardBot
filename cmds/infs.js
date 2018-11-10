@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
             data.push([dada, user.user.tag, inf.action, inf.moderator, inf.reason])
         })
     })
-    config = {
+    let config = {
         border: {
             topBody: `─`,
             topJoin: ``,
