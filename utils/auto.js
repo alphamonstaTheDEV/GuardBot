@@ -59,11 +59,11 @@ module.exports.fetchInf = (message, memberID, infType) => {
 		let fmessages = messages.filter(msg => msg.content.startsWith(memberID))
 		if(infType == "all") {
 			arrayOfInfs = fmessages.map(msgss => {return JSON.parse(msgss.content.slice(18))})
-			return (arrayOfInfs);
+			return arrayOfInfs;
 			} else {
 			let msgs = fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`))
 			arrayOfInfs = msgs.map(msg => {return JSON.parse(msg.content.slice(18))})
-			return (arrayOfInfs);
+			return arrayOfInfs;
 		}
 		
 	})
