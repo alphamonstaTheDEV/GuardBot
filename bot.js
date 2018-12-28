@@ -1,9 +1,17 @@
 const fs = require(`fs`);
 const Discord = require("discord.js");
+const mongoose = require("mongoose");
 const client = new Discord.Client({ disableEveryone: true });
 const pref = process.env.prefix;
 client.ownerID = "316641074967871500";
+client.URI = process.env.URI;
 
+client.on("ready", () => {
+    console.log("I am ready to roll.")
+    client.channels.get("498011161891962910").send("Build Success.")
+    client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
+    database.connect(client);
+});
 
 client.on("channelCreate", async channel => {
     let logChannel = channel.guild.channels.find("name", "guardbot-log");
@@ -37,12 +45,6 @@ client.on("messageDelete", async message => {
     logChannel.send(`❗ A message sent by ${message.author.tag} (\`${message.author.id}\`) has been deleted. **Message Channel:** \`${message.channel.name} (${message.channel.id})\` **Message Content:** \n \`${message.content}\``);
 })
 
-client.on("ready", () => {
-    console.log("I am ready to roll.")
-    client.channels.get("498011161891962910").send("Build Success.")
-    client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
-
-});
 client.on("guildCreate", guild => {
     client.channels.get("498011161891962910").send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
@@ -78,3 +80,4 @@ client.on("message", async message => {
 });
 
 client.login(process.env.TOKEN);
+mongoose.connect(client.URI, { useNewUrlParser: true })
