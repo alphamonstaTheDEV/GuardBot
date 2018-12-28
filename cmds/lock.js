@@ -4,6 +4,7 @@ const errors = require("../utils/errors.js");
 const auto = require("../utils/auto.js");
 const config = require("../config.json");
 const ms = require("ms")
+
 module.exports.run = async (client, message, args) => {
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
     let channel = message.channel;
