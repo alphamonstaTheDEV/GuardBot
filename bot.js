@@ -10,7 +10,6 @@ client.on("ready", () => {
     console.log("I am ready to roll.")
     client.channels.get("498011161891962910").send("Build Success.")
     client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
-    database.connect(client);
 });
 
 client.on("channelCreate", async channel => {
