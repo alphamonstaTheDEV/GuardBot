@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 const auto = require("../utils/auto.js");
 const config = require("../config.json");
-
+const schemas = require("../utils/schemas.js");
 module.exports.actionTaken = (message, action, member, reason) => {
 	if (!reason) {reason = "Not given."}
 	if (action === "force banned") {
@@ -52,21 +52,5 @@ module.exports.getUser = (message, args) => {
 }
 
 module.exports.fetchInf = async (message, memberID, infType) => {
-	let warning_channel = message.guild.channels.find("name", "guardbot-database-channel");
-	if(!warning_channel) return "noChannel"
-	let arrayOfInfs;
-	await warning_channel.fetchMessages().then(messages => {
-		let fmessages = messages.filter(msg => msg.content.startsWith(memberID))
-		if(infType == "all") {
-			arrayOfInfs = fmessages.map(msgss => {return JSON.parse(msgss.content.slice(18))})
-			
-			}
-		 else {
-			let msgs = fmessages.filter(msg => msg.content.startsWith(`${memberID} ${infType}`))
-			arrayOfInfs = msgs.map(msg => {return JSON.parse(msg.content.slice(18))})
-			
-		}
-		
-	})
-	return arrayOfInfs;
+	
 }
