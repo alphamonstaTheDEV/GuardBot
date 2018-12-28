@@ -39,6 +39,7 @@ client.on("channelDelete", async channel => {
 })
 
 client.on("messageDelete", async message => {
+    if (message.channel.type == "dm") return;
     let logChannel = message.guild.channels.find("name", "guardbot-log");
     if (!logChannel) return;
     logChannel.send(`❗ A message sent by ${message.author.tag} (\`${message.author.id}\`) has been deleted. **Message Channel:** \`${message.channel.name} (${message.channel.id})\` **Message Content:** \n \`${message.content}\``);
