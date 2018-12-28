@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
     await warning_channel.send(user.id + json)
     auto.log(message, "warned", user, reason)
     auto.actionTaken(message, "warned", user, reason)
-    const warn = new schemes.Inf({
+    const warn = new schemas.Inf({
         _id: mongoose.Types.ObjectId(),
         ServerID: message.guild.id,
         UserID: user.id,

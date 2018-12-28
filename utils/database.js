@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //          [--Schemes--]
-const infScheme = mongoose.Schema({
+const infSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     ServerID: String,
     UserID: String,
@@ -10,7 +10,7 @@ const infScheme = mongoose.Schema({
     Date: String,
     ID: Number
 })
-module.exports.Inf = mongoose.model("inf", infScheme);
+module.exports.Inf = mongoose.model("inf", infSchema);
 
 //          [--DatabaseStuff--]
 
