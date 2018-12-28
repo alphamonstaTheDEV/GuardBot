@@ -1,5 +1,6 @@
 const fs = require(`fs`);
 const Discord = require("discord.js");
+const mongoose = require("mongoose");
 const errors = require("../utils/errors.js");
 const auto = require("../utils/auto.js");
 const schemas = require("../utils/database.js");
