@@ -55,8 +55,7 @@ client.on("guildCreate", guild => {
 client.on("guildDelete", guild => {
     client.channels.get("498011161891962910").send(`I have been removed from: ${guild.name} (id: ${guild.id})`);
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    schemas.Server.deleteMany({ serverID: guild.id }, (err) => {console.log(err);
-    })
+    schemas.Server.findOneAndRemove({ serverID: guild.id })
 });
 
 const neededPerms = ["BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_MESSAGES", "MANAGE_CHANNELS", "MANAGE_ROLES", "EMBED_LINKS", "VIEW_CHANNEL"]
