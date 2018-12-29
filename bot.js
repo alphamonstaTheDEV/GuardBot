@@ -39,17 +39,14 @@ client.on("messageDelete", async message => {
 
 client.on("ready", () => {
     console.log("I am ready to roll.")
-    client.channels.get("498011161891962910").send("Build Success.")
     client.user.setPresence({game: { type: "LISTENING", name: "commands! | Prefix: `/`"}, status: "idle"})
 
 });
 client.on("guildCreate", guild => {
-    client.channels.get("498011161891962910").send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
 
 });
 client.on("guildDelete", guild => {
-    client.channels.get("498011161891962910").send(`I have been removed from: ${guild.name} (id: ${guild.id})`);
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
 });
 
