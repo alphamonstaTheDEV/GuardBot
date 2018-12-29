@@ -28,10 +28,7 @@ module.exports.run = async (client, message, args) => {
         date: Date.now(),
         infID: 0001
     })
-
-    warn.save().then(result => {
-        console.log(result);
-    })
+    warn.save()
 }
 module.exports.help = {
     "description": "Warns the given user.",
