@@ -57,7 +57,7 @@ module.exports.fetchInf = async (message, memberID, infType) => {
 }
 
 module.exports.fetchGuildInfo = async (guildID) => {
-		schemas.Server.findOne({serverID: guildID}, (err, res) => {
+		await schemas.Server.findOne({serverID: guildID}, (err, res) => {
 			if (res == null) return false;
 			return res;
 		})
