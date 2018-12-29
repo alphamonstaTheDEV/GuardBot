@@ -52,8 +52,7 @@ client.on("guildCreate", guild => {
 });
 client.on("guildDelete", guild => {
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    schemas.Server.findOne({ serverID: guild.id }).remove()
-    // schemas.Server.findOneAndRemove({ serverID: guild.id })
+    schemas.Server.findOneAndRemove({ serverID: guild.id })
 });
 
 const neededPerms = ["BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_MESSAGES", "MANAGE_CHANNELS", "MANAGE_ROLES", "EMBED_LINKS", "VIEW_CHANNEL"]
