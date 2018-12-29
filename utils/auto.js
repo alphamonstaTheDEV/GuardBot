@@ -5,7 +5,6 @@ const schemas = require("../utils/schemas.js");
 const mongoose = require("mongoose");
 const auto = require("../utils/auto.js");
 const config = require("../config.json");
-const schemas = require("../utils/schemas.js");
 module.exports.actionTaken = (message, action, member, reason) => {
 	if (!reason) {reason = "Not given."}
 	if (action === "force banned") {
