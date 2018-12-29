@@ -1,6 +1,7 @@
 const fs = require(`fs`);
 const Discord = require("discord.js");
 const mongoose = require("mongoose");
+const schemas = require("./utils/schemas.js")
 const client = new Discord.Client({ disableEveryone: true });
 const pref = process.env.prefix;
 client.ownerID = "316641074967871500";
@@ -48,11 +49,13 @@ client.on("messageDelete", async message => {
 client.on("guildCreate", guild => {
     client.channels.get("498011161891962910").send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-
+    const server = new schemas.Server({serverID: guild.id})
+    server.save()
 });
 client.on("guildDelete", guild => {
     client.channels.get("498011161891962910").send(`I have been removed from: ${guild.name} (id: ${guild.id})`);
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+    schemas.Server.deleteOne({serverID: guild.id});
 });
 
 const neededPerms = ["BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_MESSAGES", "MANAGE_CHANNELS", "MANAGE_ROLES", "EMBED_LINKS", "VIEW_CHANNEL"]
