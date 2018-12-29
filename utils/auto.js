@@ -1,6 +1,8 @@
 const fs = require(`fs`);
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+const schemas = require("../utils/schemas.js");
+const mongoose = require("mongoose");
 const auto = require("../utils/auto.js");
 const config = require("../config.json");
 const schemas = require("../utils/schemas.js");
@@ -53,4 +55,11 @@ module.exports.getUser = (message, args) => {
 
 module.exports.fetchInf = async (message, memberID, infType) => {
 	
+}
+
+module.exports.fetchGuildInfo = async (guildID) => {
+		schemas.Server.findOne({serverID: guildID}, (err, res) => {
+			if (res == null) return false;
+			return res;
+		})
 }

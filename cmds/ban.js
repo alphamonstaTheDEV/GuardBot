@@ -16,7 +16,6 @@ module.exports.run = async (client, message, args) => {
     if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send(`${user.user.tag} has a higher role than you.`)
     
     user.ban(reason);
-    console.log("still going great");
     auto.actionTaken(message, "banned", user, reason);
     auto.log(message, "banned", user, reason);
 
