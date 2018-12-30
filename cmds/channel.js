@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
     } else if (action == "rename") {
         if (!args[0] || !args[1]) return message.channel.send("**ERROR**: \`/channel <rename> <NewName>\`");
         let name = message.channel.name;
-        await message.channel.setName(args.slice(0).join(" "));
+        await message.channel.setName(args.slice(1).join(" "));
         message.channel.send("Done! changed channel name from `" + name + "` to `" + message.channel.name + "`")
     }
     
